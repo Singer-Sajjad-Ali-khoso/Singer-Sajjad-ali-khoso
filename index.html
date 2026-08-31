@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Singer Sajjad Ali Khoso — Official Website</title>
+<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="icons/icon-16.png">
+<link rel="shortcut icon" href="icons/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#182746">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sajjad Ali Khoso">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#182746;
+    --indigo-deep:#0f1a30;
+    --ajrak-red:#a3323a;
+    --maroon:#5c1a1e;
+    --mustard:#d9a441;
+    --paper:#f2ead6;
+    --paper-dim:#cfc4a3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--indigo);
+    color:var(--paper);
+    font-family:'Manrope', sans-serif;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--mustard); color:var(--indigo-deep);}
+
+  /* ---------- Ajrak pattern (signature element) ---------- */
+  .ajrak-strip{
+    width:100%;
+    height:14px;
+    background-image:
+      repeating-linear-gradient(45deg, var(--mustard) 0 6px, transparent 6px 12px),
+      repeating-linear-gradient(-45deg, var(--ajrak-red) 0 6px, transparent 6px 12px);
+    background-color:var(--indigo-deep);
+    background-blend-mode: normal;
+    border-top:2px solid var(--mustard);
+    border-bottom:2px solid var(--mustard);
+  }
+  .ajrak-diamonds{
+    height:22px;
+    width:100%;
+    background:
+      linear-gradient(45deg, var(--ajrak-red) 25%, transparent 25.5%, transparent 75%, var(--ajrak-red) 75.5%),
+      linear-gradient(45deg, var(--ajrak-red) 25%, transparent 25.5%, transparent 75%, var(--ajrak-red) 75.5%);
+    background-position: 0 0, 11px 11px;
+    background-size: 22px 22px;
+    background-color: var(--mustard);
+    opacity:0.9;
+  }
+
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 6vw;
+    background:rgba(15,26,48,0.85);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(217,164,65,0.25);
+  }
+  .nav .mark{
+    font-family:'Unbounded', sans-serif;
+    font-weight:800;
+    font-size:15px;
+    letter-spacing:0.04em;
+    color:var(--mustard);
+  }
+  .nav .mark span{color:var(--paper);}
+  nav.links{display:flex; gap:28px;}
+  nav.links a{
+    color:var(--paper-dim);
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:600;
+    transition:color .2s;
+  }
+  nav.links a:hover, nav.links a:focus-visible{color:var(--mustard);}
+  #installBtn{
+    display:none;
+    align-items:center;
+    gap:8px;
+    font-family:'Manrope', sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.02em;
+    color:var(--indigo-deep);
+    background:var(--mustard);
+    border:none;
+    border-radius:2px;
+    padding:9px 16px;
+    cursor:pointer;
+    box-shadow:0 4px 0 var(--maroon);
+    transition:transform .2s ease;
+  }
+  #installBtn:hover{transform:translateY(-2px);}
+  @media (max-width:760px){
+    #installBtn{padding:8px 12px; font-size:11px;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:140px 6vw 90px;
+    position:relative;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(163,50,58,0.35), transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(217,164,65,0.12), transparent 55%),
+      var(--indigo);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    color:var(--mustard);
+    margin-bottom:22px;
+  }
+  h1.name{
+    font-family:'Unbounded', sans-serif;
+    font-weight:900;
+    font-size:clamp(2.6rem, 8vw, 6.2rem);
+    line-height:0.98;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper-dim) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .name-sub{
+    font-family:'Unbounded', sans-serif;
+    font-weight:600;
+    font-size:clamp(1rem, 2.4vw, 1.4rem);
+    color:var(--ajrak-red);
+    -webkit-text-stroke:0;
+    margin-top:6px;
+  }
+  .tagline{
+    max-width:560px;
+    margin:26px auto 40px;
+    color:var(--paper-dim);
+    font-size:16px;
+    line-height:1.7;
+  }
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap; justify-content:center;}
+  .btn{
+    font-family:'Manrope', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.02em;
+    padding:14px 28px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--mustard); color:var(--indigo-deep); box-shadow:0 6px 0 var(--maroon);}
+  .btn-outline{border:1.5px solid var(--paper-dim); color:var(--paper);}
+  .btn-outline:hover{border-color:var(--mustard); color:var(--mustard);}
+
+  section{padding:100px 6vw;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom:48px;
+  }
+  .section-num{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--ajrak-red);
+    font-size:14px;
+  }
+  .section-title{
+    font-family:'Unbounded', sans-serif;
+    font-weight:800;
+    font-size:clamp(1.6rem, 3.4vw, 2.4rem);
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+  .section-title span{color:var(--mustard);}
+
+  /* ---------- About ---------- */
+  .about{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:60px;
+    align-items:start;
+  }
+  .about-photo{
+    aspect-ratio:3/4;
+    background:linear-gradient(160deg, var(--maroon), var(--indigo-deep));
+    border:2px solid var(--mustard);
+    position:relative;
+    overflow:hidden;
+  }
+  .about-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .about-photo .frame-corner{
+    position:absolute; width:22px; height:22px;
+    border:2px solid var(--mustard);
+  }
+  .about-photo .fc-tl{top:8px; left:8px; border-right:0; border-bottom:0;}
+  .about-photo .fc-br{bottom:8px; right:8px; border-left:0; border-top:0;}
+  .about-text p{
+    color:var(--paper-dim);
+    line-height:1.85;
+    font-size:16px;
+    margin-bottom:18px;
+    max-width:60ch;
+  }
+  .about-text strong{color:var(--paper);}
+  .facts{display:flex; gap:36px; margin-top:32px; flex-wrap:wrap;}
+  .fact-label{font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.15em; color:var(--ajrak-red); text-transform:uppercase; margin-bottom:6px;}
+  .fact-value{font-family:'Unbounded', sans-serif; font-weight:600; font-size:15px; color:var(--paper);}
+
+  /* ---------- Songs / tracklist ---------- */
+  .tracklist{border-top:1px solid rgba(217,164,65,0.3);}
+  .track{
+    display:grid;
+    grid-template-columns:56px 1fr auto auto;
+    align-items:center;
+    gap:22px;
+    padding:22px 4px;
+    border-bottom:1px solid rgba(217,164,65,0.18);
+    transition:background .2s;
+  }
+  .track:hover{background:rgba(217,164,65,0.06);}
+  .track-num{font-family:'JetBrains Mono', monospace; color:var(--mustard); font-size:14px;}
+  .track-title{font-family:'Unbounded', sans-serif; font-weight:600; font-size:16px;}
+  .track-title small{display:block; font-family:'Manrope'; font-weight:400; color:var(--paper-dim); font-size:13px; margin-top:4px;}
+  .track-dur{font-family:'JetBrains Mono', monospace; color:var(--paper-dim); font-size:13px;}
+  .track-play{
+    width:38px; height:38px; border-radius:50%;
+    border:1.5px solid var(--mustard);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--mustard);
+    background:transparent;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .track-play:hover{background:var(--mustard); color:var(--indigo-deep);}
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+  }
+  .gallery-grid > div{
+    aspect-ratio:1;
+    background:linear-gradient(150deg, var(--indigo-deep), var(--maroon));
+    border:1px solid rgba(217,164,65,0.35);
+    overflow:hidden;
+    position:relative;
+  }
+  .gallery-grid img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s;}
+  .gallery-grid > div:hover img{transform:scale(1.06);}
+
+  /* ---------- YouTube ---------- */
+  .yt-panel{
+    display:flex; align-items:center; justify-content:space-between; gap:40px;
+    flex-wrap:wrap;
+    background:linear-gradient(120deg, var(--maroon), var(--indigo-deep));
+    border:1px solid rgba(217,164,65,0.35);
+    padding:48px;
+  }
+  .yt-panel h3{
+    font-family:'Unbounded', sans-serif; font-size:clamp(1.3rem,3vw,2rem); font-weight:800; max-width:420px; line-height:1.3;
+  }
+  .yt-panel p{color:var(--paper-dim); margin-top:12px; max-width:420px;}
+
+  /* ---------- Contact / footer ---------- */
+  footer{
+    padding:70px 6vw 40px;
+    text-align:center;
+  }
+  .social-row{display:flex; gap:22px; justify-content:center; margin-bottom:34px; flex-wrap:wrap;}
+  .social-row a{
+    color:var(--paper);
+    text-decoration:none;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--mustard);
+    padding-bottom:3px;
+  }
+  .social-row a:hover{color:var(--mustard);}
+  .copyright{color:var(--paper-dim); font-size:12px; font-family:'JetBrains Mono', monospace;}
+
+  @media (max-width:760px){
+    .about{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .track{grid-template-columns:32px 1fr auto;}
+    .track-dur{display:none;}
+    nav.links{display:none;}
+    .yt-panel{padding:32px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="mark">SAJJAD <span>ALI KHOSO</span></div>
+  <nav class="links">
+    <a href="#about">About</a>
+    <a href="#songs">Songs</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#youtube">YouTube</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button id="installBtn" aria-label="Install app">⬇ Install App</button>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Voice of Sindh · Folk &amp; Modern</div>
+  <h1 class="name">Sajjad Ali<br>Khoso</h1>
+  <div class="name-sub">سجاد علي کھوسو</div>
+  <p class="tagline">
+    Singer and performer carrying forward the sound of Sindh —
+    new songs, live performances, and the music that shaped a voice.
+  </p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://youtube.com/@sajjadalikhoso" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+    <a class="btn btn-outline" href="#songs">Listen to songs</a>
+  </div>
+</section>
+
+<div class="ajrak-strip"></div>
+<div class="ajrak-diamonds"></div>
+
+<section id="about">
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About the <span>Singer</span></h2>
+  </div>
+  <div class="about">
+    <div class="about-photo">
+      <div class="frame-corner fc-tl"></div>
+      <div class="frame-corner fc-br"></div>
+      <img src="images/about.jpg" alt="Sajjad Ali Khoso portrait">
+    </div>
+    <div class="about-text">
+      <p>
+        <strong>Sajjad Ali Khoso</strong> is a singer whose music draws on the folk traditions
+        of Sindh while reaching for a modern sound. Write a short paragraph here about how you
+        started singing, the styles you perform, and what your music means to your listeners.
+      </p>
+      <p>
+        This is a second paragraph — talk about performances, releases, or anything else you'd
+        like fans to know. Replace all of this placeholder text with your real story.
+      </p>
+      <div class="facts">
+        <div>
+          <div class="fact-label">Based in</div>
+          <div class="fact-value">Sindh, Pakistan</div>
+        </div>
+        <div>
+          <div class="fact-label">Genre</div>
+          <div class="fact-value">Sindhi Folk / Modern</div>
+        </div>
+        <div>
+          <div class="fact-label">Active since</div>
+          <div class="fact-value">20XX</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="songs">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Songs &amp; <span>Releases</span></h2>
+  </div>
+  <div class="tracklist">
+    <div class="track">
+      <div class="track-num">01</div>
+      <div class="track-title">Song Title One <small>Feat. / Album name</small></div>
+      <div class="track-dur">3:45</div>
+      <a class="track-play" href="https://youtube.com/@sajjadalikhoso" target="_blank" rel="noopener" aria-label="Play Song Title One">▶</a>
+    </div>
+    <div class="track">
+      <div class="track-num">02</div>
+      <div class="track-title">Song Title Two <small>Feat. / Album name</small></div>
+      <div class="track-dur">4:02</div>
+      <a class="track-play" href="https://youtube.com/@sajjadalikhoso" target="_blank" rel="noopener" aria-label="Play Song Title Two">▶</a>
+    </div>
+    <div class="track">
+      <div class="track-num">03</div>
+      <div class="track-title">Song Title Three <small>Feat. / Album name</small></div>
+      <div class="track-dur">3:18</div>
+      <a class="track-play" href="https://youtube.com/@sajjadalikhoso" target="_blank" rel="noopener" aria-label="Play Song Title Three">▶</a>
+    </div>
+    <div class="track">
+      <div class="track-num">04</div>
+      <div class="track-title">Song Title Four <small>Feat. / Album name</small></div>
+      <div class="track-dur">5:10</div>
+      <a class="track-play" href="https://youtube.com/@sajjadalikhoso" target="_blank" rel="noopener" aria-label="Play Song Title Four">▶</a>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Photo <span>Gallery</span></h2>
+  </div>
+  <div class="gallery-grid">
+    <div><img src="images/gallery1.jpg" alt="Sajjad Ali Khoso performing"></div>
+    <div><img src="images/gallery2.jpg" alt="Sajjad Ali Khoso on stage"></div>
+    <div><img src="images/gallery3.jpg" alt="Sajjad Ali Khoso portrait"></div>
+    <div><img src="images/gallery4.jpg" alt="Sajjad Ali Khoso in traditional dress"></div>
+    <div><img src="images/gallery5.jpg" alt="Sajjad Ali Khoso with Sindhi cap"></div>
+    <div><img src="images/gallery6.jpg" alt="Sajjad Ali Khoso portrait"></div>
+    <div><img src="images/gallery7.jpg" alt="Sajjad Ali Khoso portrait"></div>
+  </div>
+</section>
+
+<section id="youtube">
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <h2 class="section-title">On <span>YouTube</span></h2>
+  </div>
+  <div class="yt-panel">
+    <div>
+      <h3>Subscribe for new songs, live performances &amp; behind the scenes</h3>
+      <p>All latest releases and videos are posted on the official YouTube channel.</p>
+    </div>
+    <a class="btn btn-primary" href="https://youtube.com/@sajjadalikhoso" target="_blank" rel="noopener">▶ Visit YouTube Channel</a>
+  </div>
+</section>
+
+<div class="ajrak-diamonds"></div>
+
+<footer id="contact">
+  <div class="section-head" style="justify-content:center; margin-bottom:28px;">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Get in <span>Touch</span></h2>
+  </div>
+  <div class="social-row">
+    <a href="https://youtube.com/@sajjadalikhoso" target="_blank" rel="noopener">YouTube</a>
+    <a href="https://tiktok.com/@singersajjadalikhoso1000" target="_blank" rel="noopener">TikTok</a>
+  </div>
+  <p class="copyright">© 2026 Sajjad Ali Khoso. All rights reserved.</p>
+</footer>
+
+<script>
+  // Register service worker so the site works offline and opens
+  // instantly from the home-screen icon.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js').catch(() => {});
+    });
+  }
+
+  // "Install App" button — shows on Android/Chrome/Edge when the site
+  // is installable, and triggers the native install prompt.
+  let deferredPrompt = null;
+  const installBtn = document.getElementById('installBtn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'inline-flex';
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    installBtn.style.display = 'none';
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  });
+
+  window.addEventListener('appinstalled', () => {
+    installBtn.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
